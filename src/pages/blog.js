@@ -1,11 +1,27 @@
-import React from "react"
+import { graphql } from "gatsby"
+import * as React from "react"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
 
-const BlogPage = () => {
+const BlogPage = ({ data }) => {
   return (
-    <main>
-      <h1>Hi Im BlogPAge</h1>
-    </main>
+    <Layout pageTitle="Blog">
+      <ul>
+        {data.allFile.nodes.map(({ name }) => (
+          <li>{name}</li>
+        ))}
+      </ul>
+    </Layout>
   )
 }
-export const Head = () => <title>Blog</title>
+export const query = graphql`
+  query {
+    allFile(filter: { sourceInstanceName: { eq: "blog" } }) {
+      nodes {
+        name
+      }
+    }
+  }
+`
+export const Head = () => <Seo title="Blog Page" />
 export default BlogPage
