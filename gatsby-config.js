@@ -9,13 +9,16 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Jinho's Blog with Gatsby`,
+    title: `Jinho Blog`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
-    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: { modulePath: `${__dirname}/src/cms/cms.js` },
+    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,

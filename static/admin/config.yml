@@ -6,11 +6,14 @@ backend:
 media_folder: static/assets
 public_folder: /assets
 
+locale: "ko"
+
 collections:
   - name: blog
     label: Blog
     folder: blog
     create: true
+    slug: "index"
     fields:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: datetime }
