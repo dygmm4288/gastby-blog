@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "@mdx-js/react": "^3.0.0",
+    "@mdx-js/react": "^2.3.0",
     "gatsby": "^5.12.4",
     "gatsby-plugin-image": "^3.12.3",
     "gatsby-plugin-manifest": "^5.12.0",
