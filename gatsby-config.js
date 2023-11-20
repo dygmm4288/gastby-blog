@@ -12,9 +12,9 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: `Jinho Blog`,
+    title: `Ea-syno.dev`,
     description: `jinho memory blog`,
-    author: `@gatsbyjs`,
+    author: `@leejinho`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [

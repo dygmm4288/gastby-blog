@@ -1,4 +1,4 @@
-const lightTheme = {
+const darkTheme = {
   primaryColor: "#4B5E81",
   secondaryColor: "#3A2D13",
   accentColor: "#5279C7",
@@ -7,7 +7,7 @@ const lightTheme = {
   backgroundColor2: "#121212",
   backgroundColor3: "#252525",
 }
-const darkTheme = {
+const lightTheme = {
   primaryColor: "#7E91B4",
   secondaryColor: "#ECDEC5",
   accentColor: "#385FAD",

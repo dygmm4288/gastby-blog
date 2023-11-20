@@ -1,4 +1,3 @@
-/*  */
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import * as React from "react"
@@ -35,6 +34,7 @@ const BlogPost = ({ data }) => {
     thumbnailLocalImage,
   })
   const image = getImage(thumbnailLocalImage.childImageSharp.gatsbyImageData)
+  console.log(image)
   return (
     <div>
       <p>id : {id}</p>

@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components"
 const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;700&display=swap');
+
   /* http://meyerweb.com/eric/tools/css/reset/ 
     v2.0 | 20110126
     License: none (public domain)
@@ -49,6 +51,41 @@ const GlobalStyle = createGlobalStyle`
     border-spacing: 0;
   }
 
+  html,body {
+    width: 100vw;
+    background-color: ${props => props.theme.backgroundColor2}
+  }
 
+  /* 
+  font-family: 'IBM Plex Sans KR', sans-serif;
+   */
+  * {
+  font-family: 'IBM Plex Sans KR', sans-serif;
+  box-sizing: border-box;
+  }
+  :root {
+    --primaryColor: ${({ theme }) => theme.primaryColor};
+    --secondaryColor: ${({ theme }) => theme.secondaryColor};
+    --accentColor: ${({ theme }) => theme.accentColor};
+    --textColor: ${({ theme }) => theme.textColor};
+    --backgroundColor1: ${({ theme }) => theme.backgroundColor1};
+    --backgroundColor2: ${({ theme }) => theme.backgroundColor2};
+    --backgroundColor3: ${({ theme }) => theme.backgroundColor3}; 
+  }
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    cursor:pointer;
+  }
+  a:visited {
+    color: transparent;
+  }
+
+  #___gatsby {
+    max-width: 981px;
+    margin: 0 auto;
+  }
+  
 `
 export default GlobalStyle
