@@ -1,37 +1,38 @@
-import { Link, graphql, useStaticQuery } from "gatsby"
-import React from "react"
+import { Link } from "gatsby"
+import * as React from "react"
+import styled from "styled-components"
+import GlobalStyle from "../styles/GlobalStyles"
+import theme from "../styles/theme"
+
+const srcData = [
+  { src: "/", name: "home" },
+  { src: "/work", name: "work" },
+  { src: "/posts", name: "post" },
+]
 
 const Layout = ({ pageTitle, children }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  const [themeName, setThemeName] = useState("lightTheme")
   return (
-    <div>
-      <header>{data.site.siteMetadata.title}</header>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/aboutme">About Me </Link>
-          </li>
-          <li>
-            <Link to="/blog">Blog</Link>
-          </li>
-        </ul>
-      </nav>
-      <main>
-        <h1>{pageTitle}</h1>
-        {children}
-      </main>
-    </div>
+    <>
+      <GlobalStyle theme={theme[themeName]} />
+      <StHeader>
+        <h1>지노.dev</h1>
+        <nav>
+          <ul>
+            {srcOfLink.map(({ name, src }) => (
+              <li>
+                <Link to={src}>{name}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </StHeader>
+      {children}
+      <StFooter></StFooter>
+    </>
   )
 }
 export default Layout
+
+const StHeader = styled.header``
+const StFooter = styled.footer``

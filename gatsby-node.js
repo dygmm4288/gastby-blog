@@ -16,3 +16,20 @@ exports.createPages = async ({ actions }) => {
     defer: true,
   })
 }
+exports.createResolvers = ({ createResolvers, _, getNodesByType }) => {
+  createResolvers({
+    ContentfulPost: {
+      // contentful post 이름
+      thumbnailLocalImage: {
+        // 썸네일 필드 이름
+        type: `File`,
+        resolve: async (source, args, context, info) => {
+          const image = getNodesByType("File").filter(
+            file => file.relativePath === source.thumbnailLocal
+          )
+          return image[0] // 배열이 아닌 값을 반환해야한다.
+        },
+      },
+    },
+  })
+}
