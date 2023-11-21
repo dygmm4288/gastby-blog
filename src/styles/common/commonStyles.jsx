@@ -12,6 +12,14 @@ export const StText = styled.p`
     font-weight: 700;
   }
 `
+export const StTextSpan = styled.span`
+  color: #120d02;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4875rem;
+  letter-spacing: 0.004rem;
+`
 export const StHeading = styled.h2`
   opacity: 0.9;
   letter-spacing: 0.000375rem;
