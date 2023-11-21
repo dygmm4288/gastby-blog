@@ -26,6 +26,7 @@ const StPostSearchWrapper = styled.div`
     border-right: 0;
     border-bottom: 2px solid var(--accentColor);
     background-color: transparent;
+    padding-bottom: 0.5rem;
   }
   svg {
     width: 1.5rem;

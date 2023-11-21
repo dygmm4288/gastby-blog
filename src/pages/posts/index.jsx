@@ -1,5 +1,6 @@
 import * as React from "react"
 import PostCategory from "../../components/PostCategory"
+import PostList from "../../components/PostList"
 import PostSearch from "../../components/PostSearch"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
@@ -58,15 +59,6 @@ const data = [
     tags: ["typescript", "til"],
     slug: "typescript-post",
   },
-  { category: "Redux" },
-  { category: "Gatsby" },
-  { category: "Next.js" },
-  { category: "Blog" },
-  { category: "Life" },
-  { category: "Studying" },
-  { category: "Firebase" },
-  { category: "AWS" },
-  { category: "HTML/CSS" },
 ]
 
 const Posts = ({ location }) => {
@@ -74,6 +66,7 @@ const Posts = ({ location }) => {
     <Layout location={location}>
       <PostCategory data={data}></PostCategory>
       <PostSearch />
+      <PostList data={data} />
     </Layout>
   )
 }

@@ -47,7 +47,7 @@ const StFeaturedPostContent = styled.li`
   }
 `
 
-const StHeader = styled(StFlexRowSpaceBetween)`
+export const StHeader = styled(StFlexRowSpaceBetween)`
   p:first-child {
     font-weight: bold;
     font-size: 1rem;
@@ -60,7 +60,7 @@ const StHeader = styled(StFlexRowSpaceBetween)`
     letter-spacing: 0.0004rem;
   }
 `
-const StDescription = styled(StText)`
+export const StDescription = styled(StText)`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
