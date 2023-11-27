@@ -2,16 +2,16 @@ import * as React from "react"
 import { CiSearch } from "react-icons/ci"
 import styled from "styled-components"
 
-const PostSearch = () => {
+const PostSearch = ({ searchTerm, handleSearchChange }) => {
   return (
     <StPostSearchWrapper>
-      <input type="text" />
+      <input type="text" value={searchTerm} onChange={handleSearchChange} />
       <CiSearch />
     </StPostSearchWrapper>
   )
 }
 
-const StPostSearchWrapper = styled.div`
+const StPostSearchWrapper = styled.form`
   width: 100%;
   display: flex;
   flex-direction: row;

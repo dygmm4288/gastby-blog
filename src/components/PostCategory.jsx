@@ -1,14 +1,23 @@
+import { Link } from "gatsby"
 import * as React from "react"
 import styled from "styled-components"
 import mapObject from "../lib/mapObject"
 import { StTextSpan } from "../styles/common/commonStyles"
 
-const PostsCategory = ({ data }) => {
+const PostsCategory = ({ data, selectedCategory }) => {
   return (
     <StCategoryWrapper>
       {mapObject(data.reduce(getCategory, {}), (count, category) => (
-        <StCategoryItem>
-          <StTextSpan>{`${category}(${count})`}</StTextSpan>
+        <StCategoryItem $selectedCategory={selectedCategory === category}>
+          <Link
+            to={
+              selectedCategory !== category
+                ? `/posts/?category=${category}`
+                : "/posts"
+            }
+          >
+            <StTextSpan>{`${category}(${count})`}</StTextSpan>
+          </Link>
         </StCategoryItem>
       ))}
     </StCategoryWrapper>
@@ -38,6 +47,10 @@ const StCategoryWrapper = styled.ul`
 const StCategoryItem = styled.li`
   position: relative;
   cursor: pointer;
+
+  * {
+    color: ${props => (props.$selectedCategory ? "var(--accentColor)" : "")};
+  }
 
   &::after {
     content: "";

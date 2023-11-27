@@ -62,13 +62,42 @@ const data = [
 ]
 
 const Posts = ({ location }) => {
+  const [searchTerm, setSearchTerm] = React.useState("")
+  const handleSearchChange = event => {
+    setSearchTerm(event.target.value)
+  }
+  const queryString = new URLSearchParams(location.search)
+  const category = queryString.get("category")
+
+  const isIncludeSearchTerm = isInclude(searchTerm)
+
+  let filteredData = data
+  if (category) {
+    filteredData = filteredData.filter(post => post.category === category)
+  }
+
+  filteredData = filteredData.filter(
+    post =>
+      isIncludeSearchTerm(post.title) ||
+      isIncludeSearchTerm(post.description) ||
+      isIncludeSearchTerm(post.category) ||
+      isIncludeSearchTerm(post.tags.join(" "))
+  )
+
   return (
     <Layout location={location}>
-      <PostCategory data={data}></PostCategory>
-      <PostSearch />
-      <PostList data={data} />
+      <PostCategory data={data} selectedCategory={category} />
+      <PostSearch
+        searchTerm={searchTerm}
+        handleSearchChange={handleSearchChange}
+      />
+      <PostList data={filteredData} />
     </Layout>
   )
 }
 export const Head = () => <Seo title={Posts} />
 export default Posts
+
+function isInclude(target) {
+  return base => base.includes(target)
+}

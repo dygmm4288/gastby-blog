@@ -1,17 +1,26 @@
+import { Link } from "gatsby"
 import * as React from "react"
 import styled from "styled-components"
 import { StHeading, StText } from "../styles/common/commonStyles"
 import { StDescription, StHeader } from "./FeaturedPostContent"
 
-export default function PostItem({ category, createdAt, title, description }) {
+export default function PostItem({
+  category,
+  createdAt,
+  title,
+  description,
+  slug,
+}) {
   return (
     <StPostItemWrapper>
-      <StHeader>
-        <StText>{category}</StText>
-        <StText>{createdAt}</StText>
-      </StHeader>
-      <StHeading>{title}</StHeading>
-      <StDescription>{description}</StDescription>
+      <Link to={`/posts/${slug}`}>
+        <StHeader>
+          <StText>{category}</StText>
+          <StText>{createdAt}</StText>
+        </StHeader>
+        <StHeading>{title}</StHeading>
+        <StDescription>{description}</StDescription>
+      </Link>
     </StPostItemWrapper>
   )
 }
@@ -44,5 +53,14 @@ const StPostItemWrapper = styled.li`
     bottom: 10px;
     width: 5px;
     border-radius: 1rem;
+  }
+  a:active {
+    color: var(--accentColor);
+  }
+  a {
+    color: var(--textColor);
+  }
+  a {
+    flex: 1;
   }
 `
